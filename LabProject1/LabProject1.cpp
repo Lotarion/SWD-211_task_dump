@@ -28,11 +28,63 @@ void _1a()
     else {
         cout << a << " and " << b << " are equal.";
     }
+
 }
 
 int main()
 {
-    _1a();
+    cout << "Press Enter to start the task sequence\n";
+    unsigned char select = _getch();
+    if (select != 'e') {
+        _1a();
+    }
+    else {
+        int sel;
+        cout << "Entered Debug Mode.\nChoose the function bundle to test:\n1: Symbols Bundle\n2: Strings Bundle\n";
+        cin >> sel;
+        cout << sel;
+        switch (sel)
+        {
+        case 1: {
+            cout << "Symbols Bundle: choose the function to test\n1: 1a (char compasion)\n2: 1b (char code output)\n3: 1c (neighbor chars output)\n4: 1d (entire ASCII table dump)\n5: 1e (char output to uppercase)\n6: 1f ('Press Esc to continue')\n";
+            cin >> sel;
+            switch (sel)
+            {
+            case 1: {
+                _1a();
+            }
+            case 2: {
+                _1b();
+            }
+            case 3: {
+                _1c();
+            }
+            case 4: {
+                _1d();
+            }
+            case 5: {
+                _1e();
+            }
+            case 6: {
+                _1f();
+            }
+            default: {
+                cout << "Invalid function number";
+                break;
+            }
+            }
+        }
+        case 2: {
+            _2();
+        }
+
+        default: {
+            cout << "Invalid bundle number";
+            break;
+        }
+            
+        }
+    }
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
