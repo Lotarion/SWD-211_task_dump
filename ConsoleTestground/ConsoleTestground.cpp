@@ -2,10 +2,18 @@
 //
 
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+//    unsigned char a = 177;
+//    cout << a << endl;
+
+	for (unsigned char i = 176; i < 179; i += 1)
+	{
+		cout << i << endl;
+	}
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -2,11 +2,37 @@
 //
 
 #include <iostream>
+#include <conio.h>
+#include <string>
 using namespace std;
+
+void _1a()
+{
+    cout << "Input char a for comparsion:\n";
+    unsigned char a = _getch();
+    cout << "Input char b for comparsion:\n";
+    unsigned char b = _getch();
+
+    string str = " is bigger than ";
+    if (a > b)
+    {
+        str.insert(0, 1, a); // could be done with a single cout but i went with a chaotic neutral approach :)
+        str.append(1, b);
+        cout << str;
+    }
+    else if (b > a) {
+        str.insert(0, 1, a);
+        str.append(1, b);
+        cout << str;
+    }
+    else {
+        cout << a << " and " << b << " are equal.";
+    }
+}
 
 int main()
 {
-    cout << "Hello World!\n";
+    _1a();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
