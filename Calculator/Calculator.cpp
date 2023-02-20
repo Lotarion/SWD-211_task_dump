@@ -13,9 +13,8 @@ int main()
     {
         int a;
         int b;
-        cout << "Enter the input numbers: ";
+        cout << "Enter the input numbers: " << endl;
         cin >> a >> b;
-        cout << endl;
 
         int opcheck;
         cout << "Choose operation (1 for +, 2 for -, 3 for *, 4 for /) ";
@@ -25,16 +24,16 @@ int main()
         switch (opcheck)
         {
         case 1:
-            cout << "Addition result: " << a + b << endl;
+            cout << a << " + " << b << " = " << a + b << endl;
             break;
         case 2:
-            cout << "Subtraction result: " << a - b << endl;
+            cout << a << " - " << b << " = " << a - b << endl;
             break;
         case 3:
-            cout << "Multiplication result: " << a * b << endl;
+            cout << a << " * " << b << " = " << a * b << endl;
             break;
         case 4:
-            cout << "Division result: " << (float)a / b << endl;
+            cout << a << " / " << b << " = " << (float)a / b << endl;
             break;
         default:
             cout << "Error: invalid operation" << endl;
@@ -43,6 +42,11 @@ int main()
         }
         cout << "Continue? (y/n) ";
         cin >> exitcheck;
+        while (exitcheck != "y" && exitcheck != "n") 
+        {
+            cout << "Unknown option. Continue? (y/n) ";
+            cin >> exitcheck;
+        }
         cout << endl;
     }
 }
