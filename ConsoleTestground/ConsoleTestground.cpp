@@ -6,13 +6,6 @@ using namespace std;
 
 int main()
 {
-//    unsigned char a = 177;
-//    cout << a << endl;
-
-	for (unsigned char i = 176; i < 179; i += 1)
-	{
-		cout << i << endl;
-	}
 
 }
 

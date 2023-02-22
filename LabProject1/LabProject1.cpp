@@ -31,6 +31,32 @@ void _1a()
 
 }
 
+void _1b()
+{
+    cout << "Input char:\n";
+    unsigned char a = _getch();
+
+    int b = a;
+    cout << "Inputed char's code: " << b;
+}
+
+void _1c()
+{
+    cout << "Input char:\n";
+    unsigned char a = _getch();
+
+    unsigned char b = a + 1;
+    unsigned char c = a - 1;
+
+    cout << "Previous char: " << c << ", next char: " << b;
+}
+
+void _1d()
+{
+
+}
+
+
 int main()
 {
     cout << "Press Enter to start the task sequence\n";
