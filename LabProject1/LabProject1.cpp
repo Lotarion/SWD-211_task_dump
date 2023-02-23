@@ -18,17 +18,18 @@ void _1a()
     {
         str.insert(0, 1, a); // could be done with a single cout but i went with a chaotic neutral approach :)
         str.append(1, b);
-        cout << str;
+        cout << str << endl;
     }
     else if (b > a) {
         str.insert(0, 1, a);
         str.append(1, b);
-        cout << str;
+        cout << str << endl;
     }
     else {
-        cout << a << " and " << b << " are equal.";
+        cout << a << " and " << b << " are equal." << endl;
     }
-
+    cout << "Press any key to continue" << endl;
+    _getch();
 }
 
 void _1b()
@@ -38,6 +39,8 @@ void _1b()
 
     int b = a;
     cout << "Inputed char's code: " << b;
+    cout << "Press any key to continue" << endl;
+    _getch();
 }
 
 void _1c()
@@ -49,13 +52,88 @@ void _1c()
     unsigned char c = a - 1;
 
     cout << "Previous char: " << c << ", next char: " << b;
+    cout << "Press any key to continue" << endl;
+    _getch();
 }
 
-void _1d()
+void _1d() // i utterly hate this one
+{
+    string uphead;
+    uphead.append(1, 218);
+    for (int _ = 0; _ < 8; _++)
+    {
+        uphead.append(5, 196);
+        uphead.append(1, 194);
+    }
+    uphead.insert(uphead.size(), 1, 191);
+
+    cout << uphead << endl;
+
+    for (int i = 0; i < 32; i++)
+    {
+        string a;
+        if (i > 9) {
+            a = " ";
+        }
+        else {
+            a = "  ";
+        }
+        cout << "|" << a << i << " " << unsigned char(i) << "|";
+
+        cout << " " << i + 32 << " " << unsigned char(i + 32) << "|";
+
+        cout << " " << i + 64 << " " << unsigned char(i + 64) << "|";
+
+        string b;
+        if (i + 96 < 100) {
+            b = " ";
+        }
+        else {
+            b = "";
+        }
+        cout << b << i + 96 << " " << unsigned char(i + 96) << "|";
+
+        cout << i + 128 << " " << unsigned char(i + 128) << "|";
+        cout << i + 160 << " " << unsigned char(i + 160) << "|";
+        cout << i + 192 << " " << unsigned char(i + 192) << "|";
+        cout << i + 224 << " " << unsigned char(i + 224) << "|\n";
+    }
+
+    string downhead;
+    downhead.append(1, 192);
+    for (int _ = 0; _ < 8; _++)
+    {
+        downhead.append(5, 196);
+        downhead.append(1, 193);
+    }
+    downhead.insert(downhead.size(), 1, 217);
+
+    cout << downhead << endl;
+    cout << "Press any key to continue" << endl;
+    _getch();
+}
+
+void _1e()
 {
 
+    cout << "Press any key to continue" << endl;
+    _getch();
+    _getch();
 }
 
+void _1f()
+{
+
+    cout << "Press any key to continue" << endl;
+    _getch();
+}
+
+void _2() 
+{
+
+    cout << "Press any key to continue" << endl;
+    _getch();
+}
 
 int main()
 {
@@ -74,34 +152,42 @@ int main()
         case 1: {
             cout << "Symbols Bundle: choose the function to test\n1: 1a (char compasion)\n2: 1b (char code output)\n3: 1c (neighbor chars output)\n4: 1d (entire ASCII table dump)\n5: 1e (char output to uppercase)\n6: 1f ('Press Esc to continue')\n";
             cin >> sel;
-            switch (sel)
-            {
-            case 1: {
-                _1a();
-            }
+            switch (sel)        //What will happen if you forget to break; in switch cases?
+            {                   //1: Nothing
+            case 1: {           //2: "break" will appear as console output
+                _1a();          //3: You will regret being born
+                break;
+            }                   //Correct answer is 3: You will regret being born
             case 2: {
                 _1b();
+                break;
             }
             case 3: {
                 _1c();
+                break;
             }
             case 4: {
                 _1d();
+                break;
             }
             case 5: {
                 _1e();
+                break;
             }
             case 6: {
                 _1f();
+                break;
             }
             default: {
                 cout << "Invalid function number";
                 break;
             }
             }
+            break;
         }
         case 2: {
             _2();
+            break;
         }
 
         default: {

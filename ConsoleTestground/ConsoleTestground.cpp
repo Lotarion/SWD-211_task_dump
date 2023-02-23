@@ -6,7 +6,10 @@ using namespace std;
 
 int main()
 {
+    string spchar;
+    spchar = "^" + string(1, unsigned char(74));
 
+    cout << "Pretext\n" << spchar << endl << "Posttext\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
