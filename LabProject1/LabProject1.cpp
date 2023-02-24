@@ -137,11 +137,60 @@ void _1f()
     }
 }
 
-void _2() 
+void _2()
 {
+    string sa;
+    string sb;
+
+    cout << "Input string a: ";
+    cin >> sa;
+    cout << "Input string b: ";
+    cin >> sb;
+
+    while (sa.empty() && sb.empty())
+    {
+        cout << "Any of the strings must contain at least one character. ";
+        cout << "Input string a: ";
+        cin >> sa;
+        cout << "Input string b: ";
+        cin >> sb;
+    }
+
+    string c = sa + sb;
+    cout << "Catted (merged) string: " << c << endl;
 
     cout << "Press any key to continue" << endl;
     _getch();
+    system("cls");
+
+    int a = 0;
+
+    cin >> a;
+    int error;
+    do
+    {
+        error = 0;
+        cout << "Choose an index within the range of your merged string (0 - " << c.size() - 1 << ") ";
+        cin >> a;
+        if (cin.fail())
+        {
+            cout << "Please enter a valid integer" << endl;
+            error = 1;
+            cin.clear();
+            cin.ignore(80, '\n');
+        }
+    } while (error == 1);
+    
+    while (a >= c.size() || a <= 0)
+    {
+        cout << "Invalid input. Choose an index within the range of your merged string (0 - " << c.size() - 1 << ") ";
+        cin >> a;
+    }
+
+    cout << "[" << c[a] << "]" << " Choose the symbol to swap it with: ";
+    c[a] = _getch();
+
+    cout << c;
 }
 
 int main()
@@ -150,11 +199,17 @@ int main()
     unsigned char select = _getch();
     if (select != 'e') {
         _1a();
+        system("cls");
         _1b();
+        system("cls");
         _1c();
+        system("cls");
         _1d();
+        system("cls");
         _1e();
+        system("cls");
         _1f();
+        system("cls");
     }
     else {
         int sel;
@@ -200,6 +255,7 @@ int main()
             break;
         }
         case 2: {
+            cout << endl;
             _2();
             break;
         }

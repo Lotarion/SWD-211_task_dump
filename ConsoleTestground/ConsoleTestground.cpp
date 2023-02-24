@@ -7,8 +7,10 @@ using namespace std;
 
 int main()
 {
-	char a = _getch();
-	cout << "ABC " << int(a) << " DEF";
+	string a = "0123456";
+	a.insert(a.size(), 1, 76);
+
+	cout << a;
 } 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
