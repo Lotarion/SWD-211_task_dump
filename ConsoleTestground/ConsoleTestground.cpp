@@ -2,15 +2,14 @@
 //
 
 #include <iostream>
+#include <conio.h>
 using namespace std;
 
 int main()
 {
-    string spchar;
-    spchar = "^" + string(1, unsigned char(74));
-
-    cout << "Pretext\n" << spchar << endl << "Posttext\n";
-}
+	char a = _getch();
+	cout << "ABC " << int(a) << " DEF";
+} 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

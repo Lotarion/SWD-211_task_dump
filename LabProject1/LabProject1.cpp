@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <conio.h>
+#include <stdlib.h>
 #include <string>
 using namespace std;
 
@@ -115,17 +116,25 @@ void _1d() // i utterly hate this one
 
 void _1e()
 {
-
+    cout << "Input a lowercase latin character:\n";
+    unsigned char a = _getch();
+    while (a < 97 || a > 122) {
+        cout << "Invalid character. Input a lowercase latin character:\n";
+        a = _getch();
+    }
+    a = a - 32;
+    cout << "Uppercase char is: " << a << endl;
     cout << "Press any key to continue" << endl;
-    _getch();
     _getch();
 }
 
 void _1f()
 {
-
-    cout << "Press any key to continue" << endl;
-    _getch();
+    cout << "Press ESC key to continue" << endl;
+    char a = _getch();
+    while (a != 27) {
+        "Invalid key input. Press ESC key to continue";
+    }
 }
 
 void _2() 
@@ -141,6 +150,11 @@ int main()
     unsigned char select = _getch();
     if (select != 'e') {
         _1a();
+        _1b();
+        _1c();
+        _1d();
+        _1e();
+        _1f();
     }
     else {
         int sel;
