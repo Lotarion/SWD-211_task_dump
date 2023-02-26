@@ -7,6 +7,27 @@
 #include <string>
 using namespace std;
 
+int safecin(string customcout = "Input an integer")
+{
+    //this is how much i hate infinite loops (mfs occur when text gets pushed into an integer variable)
+    int value;
+    int error;
+    do
+    {
+        error = 0;
+        cout << customcout;
+        cin >> value;
+        if (cin.fail())
+        {
+            cout << "Please enter a valid integer" << endl;
+            error = 1;
+            cin.clear();
+            cin.ignore(80, '\n');
+        }
+    } while (error == 1);
+    return value;
+}
+
 void _1a()
 {
     cout << "Input char a for comparsion:\n";
@@ -166,31 +187,45 @@ void _2()
     int a = 0;
 
     cin >> a;
-    int error;
-    do
-    {
-        error = 0;
-        cout << "Choose an index within the range of your merged string (0 - " << c.size() - 1 << ") ";
-        cin >> a;
-        if (cin.fail())
-        {
-            cout << "Please enter a valid integer" << endl;
-            error = 1;
-            cin.clear();
-            cin.ignore(80, '\n');
-        }
-    } while (error == 1);
+    a = safecin("Choose an index within the range of your merged string (0 - " + c.size() - 1 + string("): "));
     
-    while (a >= c.size() || a <= 0)
+    while (a >= c.size() || a < 0)
     {
-        cout << "Invalid input. Choose an index within the range of your merged string (0 - " << c.size() - 1 << ") ";
-        cin >> a;
+        cout << "Invalid input.";
+        a = safecin("Choose an index within the range of your merged string (0 - " + c.size() - 1 + string("): "));
     }
 
     cout << "[" << c[a] << "]" << " Choose the symbol to swap it with: ";
     c[a] = _getch();
-
     cout << c;
+
+    cout << "Press any key to continue" << endl;
+    _getch();
+    system("cls");
+
+
+    int stpoint;
+
+    cout << "Now, choose a substring to cut out." << endl;
+
+    stpoint = safecin("For this, first choose a starting point (0 - " + c.size() - 1 + string("): "));
+    while (stpoint >= c.size() || a < 0)
+    {
+        cout << "Invalid input. ";
+        stpoint = safecin("Choose a starting point (0 - " + c.size() - 1 + string("): "));
+    }
+
+    int maxrange = c.size() - stpoint;
+
+    int range = safecin("Now input the size of the substring (1 - " + maxrange + string("): "));
+    while (range >= maxrange || a <= 0)
+    {
+        cout << "Invalid input. ";
+        range = safecin("Input the size of the substring (1 - " + maxrange + string("): "));
+    }
+
+    cout << "This is the substring you just mercilessly cut out: " << c.substr(stpoint, range);
+    c.erase(stpoint, range);
 }
 
 int main()
