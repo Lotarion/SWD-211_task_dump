@@ -60,7 +60,7 @@ void _1b()
     unsigned char a = _getch();
 
     int b = a;
-    cout << "Inputed char's code: " << b;
+    cout << "Inputed char's code: " << b << endl;
     cout << "Press any key to continue" << endl;
     _getch();
 }
@@ -73,7 +73,7 @@ void _1c()
     unsigned char b = a + 1;
     unsigned char c = a - 1;
 
-    cout << "Previous char: " << c << ", next char: " << b;
+    cout << "Previous char: " << c << ", next char: " << b << endl;
     cout << "Press any key to continue" << endl;
     _getch();
 }
@@ -87,7 +87,7 @@ void _1d() // i utterly hate this one
         uphead.append(5, 196);
         uphead.append(1, 194);
     }
-    uphead.insert(uphead.size(), 1, 191);
+    uphead.insert(uphead.size() - 1, 1, 191);
 
     cout << uphead << endl;
 
@@ -128,7 +128,7 @@ void _1d() // i utterly hate this one
         downhead.append(5, 196);
         downhead.append(1, 193);
     }
-    downhead.insert(downhead.size(), 1, 217);
+    downhead.insert(downhead.size() - , 1, 217);
 
     cout << downhead << endl;
     cout << "Press any key to continue" << endl;
@@ -202,11 +202,11 @@ void _2()
     _getch();
     system("cls");
 
-
-    int stpoint;
+    // unhinged commentary and texts start here (i gave up on formality)
+    int stpoint; 
 
     cout << "Now, choose a substring to cut out." << endl;
-
+    // any sane person would say that this code is shit, but i am not paid for it so don't care
     stpoint = safecin("For this, first choose a starting point (0 - " + to_string(c.size() - 1) + string("): "));
     while (stpoint >= c.size() || a < 0)
     {
@@ -224,13 +224,40 @@ void _2()
     }
 
     cout << "This is the substring you just mercilessly cut out: " << c.substr(stpoint, range) << endl;
+
+    cout << "Press any key to continue" << endl;
+    _getch();
+    system("cls");
+    
     c.erase(stpoint, range);
+    
+    cout << "And that's what's left after the slaughter: " << c << endl;
+
+    cout << "Press any key to continue" << endl; // easiest task of my life lmao, onto the next one i go
+    _getch();
+    system("cls");
+
+    cout << "Okay, now choose the impl- erm, the string to put in place of the one you just cut out: "; // string surgery xD
+    cin >> sa; // i am done making new vars
+
+    c.insert(stpoint, sa);
+
+    cout << "There is your cyberstring: " << c << endl;
 
     cout << "Press any key to continue" << endl;
     _getch();
     system("cls");
 
-    
+    cout << "And now, press the key you want to search for in the string: " << endl; // this step should've been between 2a and ab tbh >.>
+    char query = _getch();
+
+    if (c.find(query) == -1)
+    {
+        cout << "Key [" << query << "] is absent from the cyberstring. Hope it wasn't anything vital"; // i love beating dead horses (for legal reasons: i do not and never did)
+    }
+    else {
+        cout << "[" << query << "] is, in fact, present, the first occurrence at [" << c.find(query) << "]. If you think there are more - go find them yourself, not my problem." << endl;
+    }
 }
 
 int main()
@@ -250,6 +277,7 @@ int main()
         system("cls");
         _1f();
         system("cls");
+        _2();
     }
     else {
         int sel;
