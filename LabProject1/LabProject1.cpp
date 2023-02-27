@@ -186,18 +186,17 @@ void _2()
 
     int a = 0;
 
-    cin >> a;
-    a = safecin("Choose an index within the range of your merged string (0 - " + c.size() - 1 + string("): "));
+    a = safecin("Choose an index within the range of your merged string (0 - " + to_string(c.size() - 1) + string("): "));
     
     while (a >= c.size() || a < 0)
     {
-        cout << "Invalid input.";
-        a = safecin("Choose an index within the range of your merged string (0 - " + c.size() - 1 + string("): "));
+        cout << "Invalid input. ";
+        a = safecin("Choose an index within the range of your merged string (0 - " + to_string(c.size() - 1) + string("): "));
     }
 
-    cout << "[" << c[a] << "]" << " Choose the symbol to swap it with: ";
+    cout << "[" << c[a] << "]" << " Choose the symbol to swap it with: " << endl;
     c[a] = _getch();
-    cout << c;
+    cout << c << endl;
 
     cout << "Press any key to continue" << endl;
     _getch();
@@ -208,24 +207,30 @@ void _2()
 
     cout << "Now, choose a substring to cut out." << endl;
 
-    stpoint = safecin("For this, first choose a starting point (0 - " + c.size() - 1 + string("): "));
+    stpoint = safecin("For this, first choose a starting point (0 - " + to_string(c.size() - 1) + string("): "));
     while (stpoint >= c.size() || a < 0)
     {
         cout << "Invalid input. ";
-        stpoint = safecin("Choose a starting point (0 - " + c.size() - 1 + string("): "));
+        stpoint = safecin("Choose a starting point (0 - " + to_string(c.size() - 1) + string("): "));
     }
 
     int maxrange = c.size() - stpoint;
 
-    int range = safecin("Now input the size of the substring (1 - " + maxrange + string("): "));
+    int range = safecin("Now input the size of the substring (1 - " + to_string(maxrange) + string("): "));
     while (range >= maxrange || a <= 0)
     {
         cout << "Invalid input. ";
-        range = safecin("Input the size of the substring (1 - " + maxrange + string("): "));
+        range = safecin("Input the size of the substring (1 - " + to_string(maxrange) + string("): "));
     }
 
-    cout << "This is the substring you just mercilessly cut out: " << c.substr(stpoint, range);
+    cout << "This is the substring you just mercilessly cut out: " << c.substr(stpoint, range) << endl;
     c.erase(stpoint, range);
+
+    cout << "Press any key to continue" << endl;
+    _getch();
+    system("cls");
+
+    
 }
 
 int main()
