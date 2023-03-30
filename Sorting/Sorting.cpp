@@ -85,6 +85,7 @@ int main()
             arr[maxelemi] = arr[arrlen - 1 - i];
             arr[arrlen - 1 - i] = temp;
         }
+        break;
     }
     case 3: {
         int minelemi;
@@ -102,6 +103,7 @@ int main()
             arr[minelemi] = arr[i];
             arr[i] = temp;
         }
+        break;
     }
     default:
         break;
