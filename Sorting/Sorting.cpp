@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <ctime>
-#include <array>
 using namespace std;
 
 int safecin(string customcout = "Input an integer")
