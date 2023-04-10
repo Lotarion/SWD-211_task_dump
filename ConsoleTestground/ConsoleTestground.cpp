@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-	cout << 1 / 2;
+	cout << true + true;
 } 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

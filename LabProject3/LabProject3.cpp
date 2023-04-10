@@ -31,18 +31,17 @@ int main()
     const int arrlen = 25;
     int arr[arrlen], temp, move;
     int sw = 1;
+    bool check;
 
     while (true)
     {
         srand(time(0));
 
         sw = safecin(string("Pick the sorting method:\n1: Shell sort\n2: Shell sort (reverse)\n0: Exit\n"));
-        while (sw > 2 || sw < 0)
-        {
+        while (sw > 2 || sw < 0) {
             sw = safecin(string("Invalid sorting method number. Pick the sorting method:\n1: Shell sort\n2: Shell sort (reverse)\n0: Exit\n"));
         }
-        if (sw == 0)
-        {
+        if (sw == 0) {
             break;
         }
 
@@ -58,12 +57,26 @@ int main()
             for (int i = gap; i < arrlen; i++)
             {
                 move = i;
-                while (move > gap - 1 && arr[move] < arr[move - gap])
+                if (sw == 2) { // ugly as all hell, but works as intended
+                    check = arr[move] > arr[move - gap];
+                }
+                else
+                {
+                    check = arr[move] < arr[move - gap];
+                }
+                while (move > gap - 1 && check)
                 {
                     temp = arr[move];
                     arr[move] = arr[move - gap];
                     arr[move - gap] = temp;
                     move -= gap;
+                    if (sw == 2) {
+                        check = arr[move] > arr[move - gap];
+                    }
+                    else
+                    {
+                        check = arr[move] < arr[move - gap];
+                    }
                 }
             }
         }
