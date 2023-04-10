@@ -7,10 +7,7 @@ using namespace std;
 
 int main()
 {
-	string a = "0123456";
-	a.insert(a.size(), 1, 76);
-
-	cout << a;
+	cout << 1 / 2;
 } 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
