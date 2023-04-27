@@ -2,12 +2,32 @@
 //
 
 #include <iostream>
-#include <conio.h>
+#include <fstream>
 using namespace std;
 
 int main()
 {
-	cout << true + true;
+	ifstream file;
+	file.open("data.txt");
+	int l;
+
+	if (!file.is_open()) {
+		return 1;
+	}
+
+	while (!file.eof())
+	{
+		file >> l;
+		cout << l;
+	}
+	cout << endl;
+
+	while (!file.eof())
+	{
+		file >> l;
+		cout << l;
+	}
+	file.close();
 } 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
